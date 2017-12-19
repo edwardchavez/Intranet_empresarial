@@ -131,7 +131,7 @@ app.post('/signup', function (req, res) {
 
 
 //---------------------------------edit users details after login----------------------------------
-
+/*
 app.get('/editprofile', function (req, res, next) {
   res.render('signup');
 });
@@ -149,7 +149,7 @@ app.post('/editprofile',function(req,res){
      res.render('edit_profile.ejs',{data:results});
   });
 });
-
+*/
 
 
 
