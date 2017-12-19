@@ -129,4 +129,28 @@ app.post('/signup', function (req, res) {
   }
 });
 
+
+//---------------------------------edit users details after login----------------------------------
+
+app.get('/editprofile', function (req, res, next) {
+  res.render('signup');
+});
+
+
+app.post('/editprofile',function(req,res){
+  var userId = req.session.userId;
+  if(userId == null){
+     res.redirect("/login");
+     return;
+  }
+
+  var sql="SELECT * FROM `tbl_users` WHERE `id`='"+userId+"'";
+  db.query(sql, function(err, results){
+     res.render('edit_profile.ejs',{data:results});
+  });
+});
+
+
+
+
 module.exports = app;
