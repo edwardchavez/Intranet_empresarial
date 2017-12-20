@@ -43,22 +43,22 @@
     <script type="text/javascript" src="http://cdn-na.infragistics.com/igniteui/2017.2/latest/js/modules/infragistics.excel_serialization_openxml.js"></script>
 </head>
 <body>
-    <form method="post" action="/lectorexcel">
-    <div>
+    <form method="POST" enctype="multipart/form-data" action="/lectorexcel">
+   <!-- <div>-->
         <ol>
             <li>Download this <a href="https://www.igniteui.com/HtmlSamples/javascript-excel-library/report.xlsx" download>sample  Excel file</a></li>
             <li>Click Choose File/Browse button below and pick the sample Excel file or another excel file.</li>
         </ol>
-        <input type="file" id="input" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-        <div id="result"></div>
+        <input  name="titulo" type="file" id="input" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <div  id="result"></div>
         <table id="grid1"></table>
 
         <button type="submit">Cargar menu</button>
 
-    </div>
+    <!--</div>-->
 </form>
     
-   <script>
+   <!--<script>
 
         $(function () {
             $("#input").on("change", function () {
@@ -137,6 +137,7 @@
                 width: "100%"
             });
         }
-    </script>
+    </script>-->
+    
 </body>
 </html>
