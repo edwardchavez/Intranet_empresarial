@@ -161,7 +161,7 @@ app.get('/lectorexcel', function (req, res, next) {
 app.post('/lectorexcel', function(req, res, next){
 
 if (req.method == "POST"){
-  var info = req.query;  
+  var info = req.body;  
   //var tabla = info.titulo;
   
   console.log(info);
