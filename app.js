@@ -32,9 +32,9 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 60000 },
+  expire:10000086400
 }))
-
 
 app.use('/', index);
 app.use('/users', users);
