@@ -17,7 +17,8 @@ app.get('/login', function (req, res, next) {
 
 app.post('/login', function (req, res, next) {
   //var message = '';
-  var sess = req.session;
+  var sess = req.session.user.username;
+  
   if (req.method == "POST") {
     var post = req.body;
     var name = post.user_name;
@@ -26,21 +27,21 @@ app.post('/login', function (req, res, next) {
     var sql = "SELECT id,username, password, full_name FROM `tbl_users` WHERE `username`='" + name + "' and password = '" + pass + "'";
     db.query(sql, function (err, results) {
       if (results.length) {
-        console.log(results[0].id);
+       // console.log(results[0].id);
         req.session.userId = results[0].id;
         req.session.user = results[0];
-        console.log(results[0].id);
+        console.log(results[0]);
         res.redirect('/dashboard');
       }
       else {
-        message = 'Wrong Credentials.';
-        res.render('error.ejs', { message: message });
+        var message = 'Debe verificar su Usuario o el Password.';
+        res.render('error', { message: message });
       }
 
     });
   } else {
-    // message = 'Wrong Credentials.';
-    res.render('error.ejs');//,{message: message});
+    var message = 'Debe introducir su usuario y password.';
+    res.render('error',{message: message});
   }
 
 });
@@ -51,18 +52,19 @@ app.post('/login', function (req, res, next) {
 
 app.get('/dashboard', function (req, res, next) {
 
-  var user = req.session.user,
-    userId = req.session.userId;
-  console.log('ddd=' + userId);
+  //var user = req.session.user,
+  var  userId = req.session.userId;
+ // console.log('ddd=' + userId);
   if (userId == null) {
     res.redirect("/login");
     return;
   }
 
   var sql = "SELECT * FROM `tbl_users` WHERE `id`='" + userId + "'";
-
+  var user = req.session.user.username;
+  //console.log(req.session.user.username);
   db.query(sql, function (err, results) {
-    console.log
+    
     res.render('dashboard.ejs', { user: user });
   });
 });
@@ -88,7 +90,7 @@ app.get('/profile', function (req, res) {
 
   var sql = "SELECT * FROM `tbl_users` WHERE `id`='" + userId + "'";
   db.query(sql, function (err, result) {
-    console.log(result);
+    //console.log(result);
     res.render('profile.ejs', { data: result });
   });
 });
@@ -160,7 +162,7 @@ app.get('/lectorexcel', function (req, res, next) {
 
 app.post('/lectorexcel', function(req, res, next){
 
-console.log(req.session);
+//console.log(req.session);
 
 if (req.method == "POST"){
   var info = req.body; 
