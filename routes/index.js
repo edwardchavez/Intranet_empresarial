@@ -1,3 +1,4 @@
+
 var express = require('express');
 var app = express.Router();
 var XLSX = require('xlsx');
@@ -17,8 +18,8 @@ app.get('/login', function (req, res, next) {
 
 app.post('/login', function (req, res, next) {
   //var message = '';
-  var sess = req.session.user.username;
-  
+  var sess = req.session.user;//.username;
+  //console.log(sess);
   if (req.method == "POST") {
     var post = req.body;
     var name = post.user_name;
@@ -30,7 +31,7 @@ app.post('/login', function (req, res, next) {
        // console.log(results[0].id);
         req.session.userId = results[0].id;
         req.session.user = results[0];
-        console.log(results[0]);
+       // console.log(results[0]);
         res.redirect('/dashboard');
       }
       else {
@@ -41,7 +42,8 @@ app.post('/login', function (req, res, next) {
     });
   } else {
     var message = 'Debe introducir su usuario y password.';
-    res.render('error',{message: message});
+    res.render('login',{message: message});
+  
   }
 
 });

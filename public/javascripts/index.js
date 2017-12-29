@@ -1,4 +1,4 @@
-$('.error-page').hide(0);
+/*$('.error-page').hide(0);
 
 $('.login-button , .no-access').click(function(){
   $('.login').slideUp(500);
@@ -9,3 +9,15 @@ $('.try-again').click(function(){
   $('.error-page').hide(0);
   $('.login').slideDown(1000);
 });
+*/
+function validate(){
+  var n1 = document.getElementById("user_name");
+  var n2 = document.getElementById("password");
+  if(n1.value!="" && n2.value!=""){
+    //alert("campos no pueden estar en blanco");
+    //return true;
+  }else{
+    alert("Debe completar todos los campos...");
+    return false;
+  }
+}
