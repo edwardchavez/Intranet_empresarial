@@ -14,10 +14,10 @@ function validate(){
   var n1 = document.getElementById("user_name");
   var n2 = document.getElementById("password");
   if(n1.value!="" && n2.value!=""){
-    //alert("campos no pueden estar en blanco");
-    //return true;
-  }else{
     alert("Debe completar todos los campos...");
     return false;
+  }else{
+   return true;
+
   }
 }
