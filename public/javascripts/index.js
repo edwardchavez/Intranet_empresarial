@@ -8,8 +8,8 @@ $('.login-button , .no-access').click(function(){
 $('.try-again').click(function(){
   $('.error-page').hide(0);
   $('.login').slideDown(1000);
-});
-*/
+});*/
+
 function validate(){
   var n1 = document.getElementById("user_name");
   var n2 = document.getElementById("password");
@@ -21,3 +21,4 @@ function validate(){
 
   }
 }
+

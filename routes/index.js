@@ -8,7 +8,7 @@ var db = require('../db/db');
 //------------------------------------cargas el login-------------------------------//
 /* GET home page. */
 app.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: 'Express' });
 });
 
 /* GET login page. */
@@ -36,13 +36,13 @@ app.post('/login', function (req, res, next) {
       }
       else {
         var message = 'Debe verificar su Usuario o el Password.';
-        res.render('error', { message: message });
+        res.render('login', { info: message });
       }
 
     });
   } else {
-    var message = 'Debe introducir su usuario y password.';
-    res.render('login',{message: message});
+    var message = 'Error en el requermiento POST.';
+    res.render('login',{info: message});
   
   }
 
