@@ -1,7 +1,8 @@
 body {
   /*background:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');*/
-  background:url('https://cdn.wallpapersafari.com/41/60/ZI7tHS.jpg');
+  /*background:url('https://cdn.wallpapersafari.com/41/60/ZI7tHS.jpg');*/
   /*background:url('https://cdn.wallpapersafari.com/25/2/nWPKkm.jpg');*/
+  background-image:url('../images/ZI7tHS.jpg');
   margin:0px;
   font-family: 'Ubuntu', sans-serif;
 	background-size: 400% 400%;
