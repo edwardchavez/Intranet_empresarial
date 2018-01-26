@@ -19,9 +19,10 @@ app.get('/login', function (req, res, next) {
 app.post('/login', function (req, res, next) {
   //var message = '';
   var sess = req.session.user;//.username;
-  //console.log(sess);
+  //console.log(req.session);
   if (req.method == "POST") {
     var post = req.body;
+    //console.log(req.body);
     var name = post.user_name;
     var pass = post.password;
 
@@ -37,6 +38,7 @@ app.post('/login', function (req, res, next) {
       else {
         var message = 'Debe verificar su Usuario o el Password.';
         res.render('login', { info: message });
+        
       }
 
     });
